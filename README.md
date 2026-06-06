@@ -1,4 +1,4 @@
-# Teste DFA — Documentação
+# DFA - Documentação
 
 Visão geral
 - Código simples em C que demonstra uma única transição de um Autômato Finito Determinístico (AFD). O programa inicializa o estado como `Q0`, aplica a transição para o símbolo `1` usando a tabela `delta` e imprime o estado resultante.
