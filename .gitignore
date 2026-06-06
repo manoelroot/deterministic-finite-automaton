@@ -1,0 +1,3 @@
+.build # Ignore my compiled test file "exec"
+.output
+.vscode

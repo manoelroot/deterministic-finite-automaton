@@ -1,0 +1,23 @@
+
+CC = gcc
+CFLAGS = -Wall -Wextra -g3
+SRC = main.c
+OUTDIR = output
+TARGET = $(OUTDIR)/main
+
+.PHONY: all run clean
+
+all: $(OUTDIR) $(TARGET)
+
+$(OUTDIR):
+	mkdir -p $(OUTDIR)
+
+$(TARGET): $(SRC) | $(OUTDIR)
+	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
+
+run: all
+	$(TARGET)
+
+clean:
+	rm -f $(TARGET)
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="360" viewBox="0 0 800 360">
+  <style>
+    .box { fill:#f4f7fb; stroke:#2b6cb0; stroke-width:2; rx:6; }
+    .comp { fill:#fff7ed; stroke:#dd6b20; stroke-width:2; rx:6; }
+    .text { font-family: Inter, Arial, sans-serif; font-size:14px; fill:#172a45; }
+    .title { font-weight:700; font-size:16px; }
+    .arrow { stroke:#2d3748; stroke-width:2; marker-end:url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2d3748" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="20" y="28" class="text title">Diagrama: fluxo do programa (estilo engenharia de software)</text>
+
+  <!-- Boxes -->
+  <rect x="40" y="60" width="180" height="60" class="box" />
+  <text x="130" y="95" text-anchor="middle" class="text">main.c</text>
+  <text x="130" y="113" text-anchor="middle" class="text">(inicia execução)</text>
+
+  <rect x="270" y="50" width="180" height="80" class="comp" />
+  <text x="360" y="78" text-anchor="middle" class="text">Inicialização</text>
+  <text x="360" y="98" text-anchor="middle" class="text">current = Q0</text>
+
+  <rect x="500" y="50" width="220" height="100" class="box" />
+  <text x="610" y="76" text-anchor="middle" class="text">Tabela de transição</text>
+  <text x="610" y="96" text-anchor="middle" class="text">delta[current][symbol]</text>
+  <text x="610" y="116" text-anchor="middle" class="text">ex.: delta[Q0][1]</text>
+
+  <!-- Transition and print -->
+  <rect x="270" y="170" width="180" height="60" class="box" />
+  <text x="360" y="200" text-anchor="middle" class="text">Aplicar transição</text>
+  <text x="360" y="218" text-anchor="middle" class="text">current = delta[current][1]</text>
+
+  <rect x="500" y="170" width="220" height="60" class="comp" />
+  <text x="610" y="200" text-anchor="middle" class="text">Saída</text>
+  <text x="610" y="218" text-anchor="middle" class="text">printf("Current state: %d")</text>
+
+  <!-- Arrows -->
+  <line x1="220" y1="90" x2="270" y2="90" class="arrow" />
+  <line x1="450" y1="90" x2="500" y2="90" class="arrow" />
+  <line x1="360" y1="140" x2="360" y2="170" class="arrow" />
+  <line x1="450" y1="200" x2="500" y2="200" class="arrow" />
+
+  <!-- Legend -->
+  <rect x="20" y="260" width="760" height="80" rx="6" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="40" y="285" class="text">Legenda: caixas azuis = módulos/etapas; caixas alaranjadas = componentes de dados (tabela, armazenamento).</text>
+  <text x="40" y="305" class="text">Fluxo: execução → inicialização → lookup em `delta` → atualização de `current` → saída.</text>
+
+</svg>
